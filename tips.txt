@@ -1,0 +1,15 @@
+步骤：
+启用GitHub Pages：
+
+在图中的“Source”部分，选择“Deploy from a branch”。
+将分支选择为“main”分支（或者如果你的项目文件是在其他分支上，选择相应的分支）。
+保存设置：
+
+确认“Enforce HTTPS”选项已被选中，以确保您的网站通过HTTPS访问，这是安全的网络传输协议。
+获取URL：
+
+回到您的仓库主页面，您会发现一个新的项目设置消息，指出您的站点正在通过GitHub Pages进行服务。这通常是直接显示在仓库的顶部。
+访问您的网站：
+
+GitHub Pages将生成一个URL，通常采用格式 https://<username>.github.io/<repository-name>/。
+点击该链接，即可访问托管在GitHub Pages上的您的网页。
