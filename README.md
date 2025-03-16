@@ -1,6 +1,3 @@
-# Personalized-Trending-Strategy-Generation-System
-如果你要使用 Django 创建一个 "个性化流行攻略生成系统"，你在 GitHub 上的代码库通常会包含以下文件和目录结构：
-
 ### 项目根目录
 
 1. **README.md**: 项目说明文件，通常包含项目简介、安装步骤、使用指南等。
@@ -44,4 +41,19 @@
 2. **Dockerfile**: 如果使用 Docker 部署项目，包含构建项目的指令。
 3. **docker-compose.yml**: 如果有多个服务，比如数据库、缓存等，用于协调服务之间的关系。
 
-以上是一个基础的 Django 项目结构，具体的文件和目录可能根据项目的复杂度和功能需求有所调整。Django 的强大在于其高度可配置和可扩展，因此你可以根据实际情况进行项目规划和开发。
+travel_guide_system/
+├── backend/                  # Django 后端
+│   ├── core/                 # 核心应用
+│   ├── recommendation/       # 推荐系统
+│   ├── user_profile/         # 用户画像
+│   ├── itinerary/            # 行程规划
+│   ├── guide_generation/     # 攻略生成
+│   ├── manage.py
+│   └── travel_guide_system/  # 项目配置
+├── frontend/                 # 前端项目 (如 Vue 或 React)
+│   └── ...
+└── model_training/           # 模型训练相关代码
+    ├── data/                 # 数据集
+    ├── preprocess.py         # 数据预处理
+    ├── train.py              # 模型训练脚本
+    └── model/                # 训练好的模型
