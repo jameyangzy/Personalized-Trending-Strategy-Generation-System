@@ -42,18 +42,42 @@
 3. **docker-compose.yml**: 如果有多个服务，比如数据库、缓存等，用于协调服务之间的关系。
 
 travel_guide_system/
-├── backend/                  # Django 后端
-│   ├── core/                 # 核心应用
-│   ├── recommendation/       # 推荐系统
-│   ├── user_profile/         # 用户画像
-│   ├── itinerary/            # 行程规划
-│   ├── guide_generation/     # 攻略生成
-│   ├── manage.py
-│   └── travel_guide_system/  # 项目配置
-├── frontend/                 # 前端项目 (如 Vue 或 React)
-│   └── ...
-└── model_training/           # 模型训练相关代码
-    ├── data/                 # 数据集
-    ├── preprocess.py         # 数据预处理
-    ├── train.py              # 模型训练脚本
-    └── model/                # 训练好的模型
+├── manage.py
+├── requirements.txt
+├── travel_guide_system/          # 项目配置目录
+│   ├── __init__.py
+│   ├── settings.py               # 全局配置
+│   ├── urls.py                   # 全局路由
+│   ├── asgi.py
+│   └── wsgi.py
+├── users/                        # 用户管理应用
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── views.py
+│   ├── urls.py
+│   └── migrations/
+├── recommendations/              # 景点推荐应用
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── views.py
+│   ├── urls.py
+│   └── migrations/
+├── itinerary/                    # 行程规划应用
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── views.py
+│   ├── urls.py
+│   └── migrations/
+├── templates/                    # 全局模板
+│   └── base.html
+├── static/                       # 静态文件
+│   └── css/
+│       └── style.css
+└── venv/                         # 虚拟环境
+
