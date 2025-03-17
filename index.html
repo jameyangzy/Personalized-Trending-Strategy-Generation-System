@@ -4,75 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>个性化流行攻略生成系统</title>
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
+        <nav>
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">生成攻略</a></li>
+                <li><a href="#">我的足迹</a></li>
+                <li><a href="#">用户空间</a></li>
+            </ul>
+        </nav>
         <h1>个性化流行攻略生成系统</h1>
     </header>
     <main>
-        <section id="introduction">
+        <section class="intro">
             <h2>欢迎来到个性化流行攻略生成系统</h2>
-            <p>在这里，你可以生成个性化的流行攻略，轻松跟上潮流的步伐。</p>
+            <p>在这里，你可以输入旅途信息，生成个性化的旅行攻略，轻松掌握潮流体验。</p>
         </section>
         
-        <section id="map">
-            <h2>探索地图</h2>
-            <!-- 插入中国地图图片 -->
-            <img src="https://github.com/jameyangzy/Personalized-Trending-Strategy-Generation-System/raw/main/images/china-map.jpg" alt="中国地图" class="map-image">
-
+        <section class="map">
+           <img src="https://github.com/jameyangzy/Personalized-Trending-Strategy-Generation-System/raw/main/images/china-map.jpg" alt="中国地图" class="map-image">
         </section>
 
-        <section id="form">
-            <h2>生成你的攻略</h2>
-            <form method="post" action="{% url 'generate_guide' %}">
-                {% csrf_token %}
-                <label for="province">省份:</label>
-                <input type="text" id="province" name="province" required>
-                
-                <label for="city">城市:</label>
-                <input type="text" id="city" name="city">
-                
-                <label for="landmark">景点:</label>
-                <input type="text" id="landmark" name="landmark">
-                
-                <label for="rating">评分（1到5）:</label>
-                <input type="number" id="rating" name="rating" min="1" max="5">
-
-                <button type="submit">添加记录</button>
-                <button type="button" onclick="addMoreFields()">增加更多地点</button>
+        <section class="guide-form">
+            <h2>输入您的行程信息</h2>
+            <form method="post" action="#">
+                <div class="form-group">
+                    <label for="province">省份:</label>
+                    <input type="text" id="province" name="province" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">城市:</label>
+                    <input type="text" id="city" name="city">
+                </div>
+                <div class="form-group">
+                    <label for="landmark">景点:</label>
+                    <input type="text" id="landmark" name="landmark">
+                </div>
+                <div class="form-group">
+                    <label for="rating">评分（1到5）:</label>
+                    <input type="number" id="rating" name="rating" min="1" max="5">
+                </div>
+                <button type="submit">生成攻略</button>
+                <button type="button" id="add-more">增加更多地点</button>
             </form>
-        </section>
-        
-        <section id="results">
-            <h2>生成结果</h2>
-            {% if guide %}
-                <p>{{ guide }}</p>
-            {% endif %}
         </section>
     </main>
     <footer>
         <p>&copy; 2023 计算和智能平台部</p>
     </footer>
 
-    <script type="text/javascript">
-        function addMoreFields() {
-            const form = document.querySelector('#form form');
-            const newFields = `
-                <label for="province">省份:</label>
-                <input type="text" name="province" required>
-
-                <label for="city">城市:</label>
-                <input type="text" name="city">
-
-                <label for="landmark">景点:</label>
-                <input type="text" name="landmark">
-
-                <label for="rating">评分（1到5）:</label>
-                <input type="number" name="rating" min="1" max="5">
-            `;
-            form.insertAdjacentHTML('beforeend', newFields);
-        }
+    <script>
+        document.getElementById('add-more').addEventListener('click', function() {
+            let form = document.querySelector('form');
+            let newGroup = `
+                <div class="form-group">
+                    <label for="province">省份:</label>
+                    <input type="text" name="province" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">城市:</label>
+                    <input type="text" name="city">
+                </div>
+                <div class="form-group">
+                    <label for="landmark">景点:</label>
+                    <input type="text" name="landmark">
+                </div>
+                <div class="form-group">
+                    <label for="rating">评分（1到5）:</label>
+                    <input type="number" name="rating" min="1" max="5">
+                </div>`;
+            form.insertAdjacentHTML('beforeend', newGroup);
+        });
     </script>
 </body>
 </html>
