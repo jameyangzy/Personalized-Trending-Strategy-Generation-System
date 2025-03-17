@@ -1,0 +1,31 @@
+import requests
+from bs4 import BeautifulSoup
+
+def fetch_page(url):
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36'
+    }
+    response = requests.get(url, headers=headers)
+    
+    if response.status_code == 200:
+        return response.content
+    else:
+        print(f"Failed to fetch {url} with status code {response.status_code}")
+        return None
+
+def parse_page(content):
+    # 使用BeautifulSoup解析HTML
+    soup = BeautifulSoup(content, 'html.parser')
+    
+    # 根据网站结构提取所需信息
+    # 举例来说，提取旅游景点名称和评分
+    for item in soup.find_all('div', class_='your-target-class'):
+        name = item.find('h2').text
+        rating = item.find('span', class_='rating-class').text
+        print(f"Name: {name}, Rating: {rating}")
+
+url = 'https://www.example.com/target-page'
+content = fetch_page(url)
+
+if content:
+    parse_page(content)
