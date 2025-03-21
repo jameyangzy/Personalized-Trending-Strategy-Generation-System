@@ -153,10 +153,12 @@
 
         function randomizeLeafSize() {
             document.querySelectorAll('.leaf-icon').forEach(leaf => {
-                var size = Math.floor(Math.random() * 50) + 25; // 随机大小范围
+                var size = Math.floor(Math.random() * 25) + 25; // 更改大小范围
                 leaf.style.width = size + 'px';
+                leaf.style.height = size + 'px';
             });
         }
+
         randomizeLeafSize(); // 初始化时调用
 
         document.getElementById('search').addEventListener('click', function() {
