@@ -5,6 +5,11 @@ body {
     padding: 0;
     background-color: #e8f5e9;
 }
+.leaf-icon {
+    animation: float 3s ease-in-out infinite;
+    width: 50px; 
+    margin: 15px;
+}
 
 header {
     display: flex;
