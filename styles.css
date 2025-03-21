@@ -13,6 +13,11 @@ header {
     background-color: #c8e6c9;
     font-family: 'Arial Black', sans-serif; /* 使用更粗的字体 */
 }
+.leaf-icon {
+    animation: float 3s ease-in-out infinite;
+    width: 50px; /* 确认这里设定了正确的大小 */
+    margin: 15px;
+}
 
 nav ul {
     list-style-type: none;
