@@ -19,7 +19,7 @@
                 <li><button class="nav-button active">主页</button></li>
                 <li><button class="nav-button">攻略</button></li>
                 <li><button class="nav-button">更多功能</button></li>
-                <li><button class="nav-button">主页</button></li>
+                <li><button class="nav-button">个人空间</button></li>
             </ul>
         </nav>
     </header>
@@ -63,30 +63,30 @@
                     </form>
                 </div>
                 <div id="baidu-map" class="map"></div>
-                <div class="search-result">
-                    <div class="result-item">
-                        <img src="https://github.com/jameyangzy/Personalized-Trending-Strategy-Generation-System/raw/main/images/Beijing.png" alt="景点" class="result-image">
-                        <div class="result-actions">
-                            <button class="action-button">👍</button>
-                            <button class="action-button">👎</button>
-                            <button class="action-button">⭐️</button>
-                        </div>
+            </div>
+            <div class="search-result">
+                <div class="result-item">
+                    <img src="https://github.com/jameyangzy/Personalized-Trending-Strategy-Generation-System/raw/main/images/Beijing.png" alt="景点" class="result-image">
+                    <div class="result-actions">
+                        <button class="action-button">👍</button>
+                        <button class="action-button">👎</button>
+                        <button class="action-button">⭐️</button>
                     </div>
-                    <div class="result-item">
-                        <img src="https://github.com/jameyangzy/Personalized-Trending-Strategy-Generation-System/raw/main/images/Beijing.png" alt="景点" class="result-image">
-                        <div class="result-actions">
-                            <button class="action-button">👍</button>
-                            <button class="action-button">👎</button>
-                            <button class="action-button">⭐️</button>
-                        </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://github.com/jameyangzy/Personalized-Trending-Strategy-Generation-System/raw/main/images/Beijing.png" alt="景点" class="result-image">
+                    <div class="result-actions">
+                        <button class="action-button">👍</button>
+                        <button class="action-button">👎</button>
+                        <button class="action-button">⭐️</button>
                     </div>
-                    <div class="result-item">
-                        <img src="https://github.com/jameyangzy/Personalized-Trending-Strategy-Generation-System/raw/main/images/Beijing.png" alt="景点" class="result-image">
-                        <div class="result-actions">
-                            <button class="action-button">👍</button>
-                            <button class="action-button">👎</button>
-                            <button class="action-button">⭐️</button>
-                        </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://github.com/jameyangzy/Personalized-Trending-Strategy-Generation-System/raw/main/images/Beijing.png" alt="景点" class="result-image">
+                    <div class="result-actions">
+                        <button class="action-button">👍</button>
+                        <button class="action-button">👎</button>
+                        <button class="action-button">⭐️</button>
                     </div>
                 </div>
             </div>
@@ -153,7 +153,7 @@
 
         function randomizeLeafSize() {
             document.querySelectorAll('.leaf-icon').forEach(leaf => {
-                var size = Math.floor(Math.random() * 50) + 50; // 随机大小范围
+                var size = Math.floor(Math.random() * 50) + 25; // 随机大小范围
                 leaf.style.width = size + 'px';
             });
         }
