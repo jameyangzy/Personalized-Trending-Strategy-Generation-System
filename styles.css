@@ -1,136 +1,201 @@
-/* 新增布局核心代码 */
+/* 基础样式 */
 :root {
-    --primary-green: #2e7d32;
-    --secondary-green: #81c784;
-    --accent-yellow: #fff176;
-    --background: #f0f9eb;
-    --leaf-size: 80px;
+    --primary-color: #2e7d32;
+    --secondary-color: #81c784;
+    --background-color: #f0f9eb;
 }
 
 body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--background-color);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    background: var(--background);
 }
 
-/* 头部导航栏 */
+/* 导航栏样式 */
 header {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background: var(--primary-green);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 15px 50px;
+    background: var(--primary-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1000;
 }
 
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    flex: 0 0 200px;
 }
 
 .logo-image {
     width: 60px;
     height: 60px;
-    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+    margin-right: 15px;
+}
+
+.logo-text {
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
 }
 
 nav ul {
     display: flex;
-    justify-content: center;
-    gap: 2rem;
+    gap: 40px;
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-button {
-    padding: 0.8rem 2rem;
-    border-radius: 2rem;
-    background: var(--secondary-green);
+    padding: 12px 35px;
+    border: none;
+    border-radius: 25px;
+    background: var(--secondary-color);
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
     transition: all 0.3s ease;
+}
+
+.nav-button.active {
+    background: #4caf50;
+    transform: scale(1.05);
 }
 
 .user-section {
     display: flex;
-    justify-self: end;
     align-items: center;
-    gap: 1rem;
+    gap: 20px;
+    flex: 0 0 200px;
+    justify-content: flex-end;
 }
 
-/* 主体三栏布局 */
+.user-status {
+    color: #e8f5e9;
+    font-size: 14px;
+    cursor: default;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 主体布局 */
 main {
     flex: 1;
-    display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
-    gap: 2rem;
-    padding: 2rem;
-    margin-top: 1rem;
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 20px;
 }
 
-/* 左侧关键词区域 */
 .input-side {
+    flex: 1;
+    max-width: 16.666%;
+    min-width: 250px;
+}
+
+.map-result-container {
+    flex: 2;
+    min-width: 60%;
+}
+
+.recommend-side {
+    flex: 1;
+    max-width: 16.666%;
+    min-width: 250px;
+}
+
+/* 关键词区域 */
+.keywords-area {
     position: relative;
-    height: calc(100vh - 200px);
-    border: 2px dashed var(--secondary-green);
-    border-radius: 1rem;
+    height: 300px;
+    margin-top: 20px;
+    border: 2px dashed var(--secondary-color);
+    border-radius: 10px;
     overflow: hidden;
 }
 
 .keyword-leaf {
     position: absolute;
     animation: float 8s ease-in-out infinite;
+    transition: all 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
-    width: var(--leaf-size);
-    cursor: pointer;
+}
+
+.keyword-leaf span {
+    margin-top: 8px;
+    font-size: 14px;
+    color: var(--primary-color);
+    font-weight: bold;
+    text-align: center;
+    max-width: 80px;
 }
 
 @keyframes float {
-    0%, 100% { transform: translate(0,0) rotate(0deg); }
-    25% { transform: translate(-10px,-30px) rotate(-5deg); }
-    50% { transform: translate(15px,20px) rotate(3deg); }
-    75% { transform: translate(-20px,10px) rotate(5deg); }
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-30px) rotate(5deg); }
+    50% { transform: translateY(15px) rotate(-5deg); }
+    75% { transform: translateY(-20px) rotate(3deg); }
 }
 
-/* 中间地图区域 */
-.map-result-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
+/* 地图区域 */
 #baidu-map {
     height: 600px;
-    border-radius: 1rem;
+    border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-top: 20px;
 }
 
-/* 右侧推荐区域 */
-.recommend-side {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
+/* 推荐区域 */
 .recommend-item {
-    background: white;
-    padding: 1rem;
-    border-radius: 1rem;
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 20px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .recommend-image {
-    width: 100%;
+    width: 150px;
     height: 150px;
-    object-fit: cover;
     border-radius: 50%;
-    border: 3px solid var(--secondary-green);
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid var(--secondary-color);
 }
 
-/* 底部样式 */
+/* 页脚 */
 footer {
-    background: var(--primary-green);
-    color: white;
+    background: var(--primary-color);
+    color: #fff;
     text-align: center;
-    padding: 1rem;
+    padding: 20px;
     margin-top: auto;
 }
