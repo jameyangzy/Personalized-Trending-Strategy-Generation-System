@@ -15,6 +15,23 @@ body {
     flex-direction: column;
 }
 
+/* 景点展示区域 */
+.map-result-container {
+    position: relative;
+    display: flex;
+}
+
+.place-images {
+    width: 25%;
+    padding-left: 10px; /* 从地图右侧边框留出适当空间 */
+}
+
+.place-image {
+    display: block;
+    margin-bottom: 10px;
+}
+
+
 /* 导航栏样式 */
 header {
     display: flex;
