@@ -3,9 +3,14 @@ function createInitialLeaves() {
     const area = document.getElementById('keywords-area');
     const keywords = ['自然风光', '历史人文', '美食体验'];
     
-    keywords.forEach((text, index) => {
-        createLeafElement(text, index * 2000);
-    });
+    .keywords-area {
+        position: relative;
+        height: 600px; /* 调整为两倍的当前高度 */
+        margin-top: 20px;
+        border: 2px dashed var(--secondary-color);
+        border-radius: 10px;
+        overflow: hidden;
+    };
 }
 
 function createLeafElement(text, delay = 0) {
