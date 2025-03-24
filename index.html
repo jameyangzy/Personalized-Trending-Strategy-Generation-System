@@ -1,12 +1,26 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>叶子旅行 - 首页</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="http://api.map.baidu.com/api?v=2.0&ak=你的百度地图AK"></script>
-</head>
+<header>
+    <div class="logo-container">
+        <img src="leaf.png" alt="叶子旅行" class="logo-image">
+        <span class="logo-text">叶子旅行</span>
+    </div>
+    
+    <nav>
+        <ul>
+            <li><button class="nav-button active">主页</button></li>
+            <li><button class="nav-button">攻略</button></li>
+            <li><button class="nav-button">更多功能</button></li>
+            <li><button class="nav-button">个人空间</button></li>
+        </ul>
+    </nav>
+
+    <div class="user-section">
+        <span class="user-status" id="userStatus">访客模式</span>
+        <div class="user-avatar" onclick="showAuthModal()">👤</div>
+    </div>
+</header>
+
 <body>
     <header>
         <div class="logo-container">
@@ -57,4 +71,7 @@
 
     <script src="Script.js"></script>
 </body>
+<div id="authModal" class="modal hidden">
+    <iframe src="login.html" frameborder="0"></iframe>
+</div>
 </html>
