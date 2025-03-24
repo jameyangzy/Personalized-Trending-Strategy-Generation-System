@@ -247,9 +247,11 @@ main {
 
 /* 页脚 */
 footer {
+    width: 100%;
     background: var(--primary-color);
     color: #fff;
     text-align: center;
     padding: 20px;
-    margin-top: auto;
+    position: relative;
+    bottom: 0;
 }
