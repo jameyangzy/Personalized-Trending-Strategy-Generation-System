@@ -2,36 +2,73 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>用户登录 - 叶子旅行</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>叶子旅行 - 个性化旅游推荐系统</title>
     <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=您的百度地图AK"></script>
 </head>
-<body class="login-body">
-    <div class="login-container">
-        <div class="leaf-decoration"></div>
-        
-        <div class="form-container">
-            <!-- 登录表单 -->
-            <form id="loginForm" class="auth-form">
-                <h2>用户登录</h2>
-                <input type="text" id="loginAccount" placeholder="6位数字账号" pattern="\d{6}" required>
-                <input type="password" id="loginPassword" placeholder="6位密码" pattern="[A-Za-z0-9]{6}" required>
-                <button type="submit">登录</button>
-                <p class="switch-form">没有账号？<a href="#" id="showRegister">立即注册</a></p>
-            </form>
-
-            <!-- 注册表单 -->
-            <form id="registerForm" class="auth-form hidden">
-                <h2>用户注册</h2>
-                <input type="text" id="regUsername" placeholder="用户名(中文1-5字/英文1-10字)" 
-                       pattern="^[\u4e00-\u9fa5]{1,5}$|^[A-Za-z]{1,10}$" required>
-                <input type="password" id="regPassword" placeholder="设置密码(6位数字/字母)" 
-                       pattern="[A-Za-z0-9]{6}" required>
-                <button type="submit">注册</button>
-                <p class="switch-form">已有账号？<a href="#" id="showLogin">立即登录</a></p>
-            </form>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="https://jameyangzy.github.io/Personalized-Trending-Strategy-Generation-System/images/leaf.png" 
+                 alt="叶子旅行" 
+                 class="logo-image">
+            <span class="logo-text">叶子旅行</span>
         </div>
+        
+        <nav>
+            <ul>
+                <li><button class="nav-button active">主页</button></li>
+                <li><button class="nav-button">攻略</button></li>
+                <li><button class="nav-button">更多功能</button></li>
+                <li><button class="nav-button">个人空间</button></li>
+            </ul>
+        </nav>
+
+        <div class="user-section">
+            <span class="user-status" id="userStatus">访客模式</span>
+            <div class="user-avatar" onclick="showAuthModal()">👤</div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 左侧输入区域 -->
+        <aside class="input-side">
+            <h2>旅行关键词</h2>
+            <div class="keyword-form">
+                <input type="text" id="keyword-input" placeholder="输入旅行关键词...">
+                <button id="add-keyword" class="nav-button">添加</button>
+            </div>
+            <div id="keywords-area" class="keywords-area"></div>
+        </aside>
+
+        <!-- 中间主区域 -->
+        <div class="map-result-container">
+            <div class="search-panel">
+                <select id="province" class="select-location"></select>
+                <select id="city" class="select-location"></select>
+                <select id="district" class="select-location"></select>
+            </div>
+            <div id="baidu-map"></div>
+        </div>
+
+        <!-- 右侧推荐区域 -->
+        <aside class="recommend-side">
+            <h2>热门推荐景点</h2>
+            <div class="recommendations" id="recommendations"></div>
+        </aside>
+    </main>
+
+    <footer>
+        感谢您的支持！
+    </footer>
+
+    <!-- 模态框 -->
+    <div id="authModal" class="modal hidden">
+        <iframe src="login.html" frameborder="0"></iframe>
     </div>
 
     <script src="auth.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
