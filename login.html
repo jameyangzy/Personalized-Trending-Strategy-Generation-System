@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录 - 叶子旅行</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-body">
+    <div class="login-container">
+        <div class="leaf-decoration"></div>
+        
+        <div class="form-container">
+            <!-- 登录表单 -->
+            <form id="loginForm" class="auth-form">
+                <h2>用户登录</h2>
+                <input type="text" id="loginAccount" placeholder="6位数字账号" pattern="\d{6}" required>
+                <input type="password" id="loginPassword" placeholder="6位密码" pattern="[A-Za-z0-9]{6}" required>
+                <button type="submit">登录</button>
+                <p class="switch-form">没有账号？<a href="#" id="showRegister">立即注册</a></p>
+            </form>
+
+            <!-- 注册表单 -->
+            <form id="registerForm" class="auth-form hidden">
+                <h2>用户注册</h2>
+                <input type="text" id="regUsername" placeholder="用户名(中文1-5字/英文1-10字)" 
+                       pattern="^[\u4e00-\u9fa5]{1,5}$|^[A-Za-z]{1,10}$" required>
+                <input type="password" id="regPassword" placeholder="设置密码(6位数字/字母)" 
+                       pattern="[A-Za-z0-9]{6}" required>
+                <button type="submit">注册</button>
+                <p class="switch-form">已有账号？<a href="#" id="showLogin">立即登录</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>
