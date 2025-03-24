@@ -182,3 +182,72 @@ nav ul {
     margin-bottom: 15px;
     border: 3px solid #81c784;
 }
+/* 新增登录样式 */
+.login-body {
+    background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%);
+}
+
+.login-container {
+    position: relative;
+    max-width: 400px;
+    margin: 100px auto;
+    background: rgba(255,255,255,0.95);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.leaf-decoration {
+    height: 120px;
+    background: url('https://jameyangzy.github.io/Personalized-Trending-Strategy-Generation-System/images/leaf.png') center/contain no-repeat;
+    opacity: 0.8;
+}
+
+.auth-form {
+    padding: 30px;
+}
+
+.auth-form input {
+    display: block;
+    width: 100%;
+    margin: 15px 0;
+    padding: 12px;
+    border: 2px solid #81c784;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.auth-form button {
+    background: #66bb6a;
+    color: white;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+/* 导航栏用户相关样式 */
+.user-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.user-status {
+    color: #2e7d32;
+    font-size: 0.9em;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #81c784;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
