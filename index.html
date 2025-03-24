@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>叶子旅行</title>
+    <title>叶子旅行 - 首页</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- 引入百度地图API -->
-    <script src="http://api.map.baidu.com/api?v=2.0&ak=0vX7qpEC00T2MY2DaOajMY3lzx2A91fA"></script>
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=你的百度地图AK"></script>
 </head>
 <body>
     <header>
-        <div class="logo">
-            <img src="https://github.com/jameyangzy/Personalized-Trending-Strategy-Generation-System/raw/main/images/leaf.png" alt="Logo" class="logo-image">
-            <span>叶子旅行</span>
+        <div class="logo-container">
+            <img src="https://jameyangzy.github.io/Personalized-Trending-Strategy-Generation-System/images/leaf.png" 
+                 alt="叶子旅行" 
+                 class="logo-image">
+            <span class="logo-text">叶子旅行</span>
         </div>
         <nav>
             <ul>
@@ -23,155 +24,37 @@
             </ul>
         </nav>
     </header>
-    
+
     <main class="flex-container">
+        <!-- 左侧输入区域 -->
         <aside class="input-side">
-            <h2>输入关键词</h2>
-            <form id="keyword-form">
-                <input type="text" placeholder="请输入关键词" id="keyword-input">
-                <button type="button" id="add-keyword">添加</button>
-            </form>
-            <div id="keywords-area" class="keywords-area">
-                <img src="https://github.com/jameyangzy/Personalized-Trending-Strategy-Generation-System/raw/main/images/leaf.png" alt="leaf" class="leaf-icon floating">
-                <img src="https://github.com/jameyangzy/Personalized-Trending-Strategy-Generation-System/raw/main/images/leaf.png" alt="leaf" class="leaf-icon floating">
-                <img src="https://github.com/jameyangzy/Personalized-Trending-Strategy-Generation-System/raw/main/images/leaf.png" alt="leaf" class="leaf-icon floating">
+            <h2>旅行关键词</h2>
+            <div class="keyword-form">
+                <input type="text" id="keyword-input" placeholder="输入旅行关键词...">
+                <button id="add-keyword">添加</button>
             </div>
+            <div id="keywords-area" class="keywords-area"></div>
         </aside>
 
-        <div class="map-result-container flex-grow">
-            <div class="map-container">
-                <div class="search-panel">
-                    <form id="search-form" class="flex-container">
-                        <select id="province" class="select-location">
-                            <option value="">省份</option>
-                            <option value="北京">北京</option>
-                            <option value="上海">上海</option>
-                            <!-- 更多省份 -->
-                        </select>
-                        <select id="city" class="select-location">
-                            <option value="">城市</option>
-                            <option value="北京市">北京市</option>
-                            <!-- 城市选项 -->
-                        </select>
-                        <select id="district" class="select-location">
-                            <option value="">县区</option>
-                            <option value="东城区">东城区</option>
-                            <option value="西城区">西城区</option>
-                            <!-- 县区选项 -->
-                        </select>
-                        <button type="button" id="search">搜索</button>
-                    </form>
-                </div>
-                <div id="baidu-map" class="map"></div>
+        <!-- 中间地图区域 -->
+        <div class="map-result-container">
+            <div class="search-panel">
+                <select id="province" class="select-location"></select>
+                <select id="city" class="select-location"></select>
+                <select id="district" class="select-location"></select>
             </div>
-            <div class="search-result">
-                <div class="result-item">
-                    <img src="https://github.com/jameyangzy/Personalized-Trending-Strategy-Generation-System/raw/main/images/Beijing.png" alt="景点" class="result-image">
-                    <div class="result-actions">
-                        <button class="action-button">👍</button>
-                        <button class="action-button">👎</button>
-                        <button class="action-button">⭐️</button>
-                    </div>
-                </div>
-                <div class="result-item">
-                    <img src="https://github.com/jameyangzy/Personalized-Trending-Strategy-Generation-System/raw/main/images/Beijing.png" alt="景点" class="result-image">
-                    <div class="result-actions">
-                        <button class="action-button">👍</button>
-                        <button class="action-button">👎</button>
-                        <button class="action-button">⭐️</button>
-                    </div>
-                </div>
-                <div class="result-item">
-                    <img src="https://github.com/jameyangzy/Personalized-Trending-Strategy-Generation-System/raw/main/images/Beijing.png" alt="景点" class="result-image">
-                    <div class="result-actions">
-                        <button class="action-button">👍</button>
-                        <button class="action-button">👎</button>
-                        <button class="action-button">⭐️</button>
-                    </div>
-                </div>
-            </div>
+            <div id="baidu-map"></div>
         </div>
 
+        <!-- 右侧推荐区域 -->
         <aside class="recommend-side">
             <h2>热门推荐景点</h2>
             <div class="recommendations">
-                <div class="recommend-item">
-                    <img src="https://github.com/jameyangzy/Personalized-Trending-Strategy-Generation-System/raw/main/images/Beijing.png" alt="景点" class="recommend-image">
-                    <p>北京的长城是一个著名的旅游景点，吸引了无数游客。</p>
-                </div>
-                <div class="recommend-item">
-                    <img src="https://github.com/jameyangzy/Personalized-Trending-Strategy-Generation-System/raw/main/images/Beijing.png" alt="景点" class="recommend-image">
-                    <p>上海的外滩以其独特的建筑风格和历史吸引游客。</p>
-                </div>
-                <div class="recommend-item">
-                    <img src="https://github.com/jameyangzy/Personalized-Trending-Strategy-Generation-System/raw/main/images/Beijing.png" alt="景点" class="recommend-image">
-                    <p>西湖的美丽景色和悠久的历史使其成为热门旅游目的地。</p>
-                </div>
-                <div class="recommend-item">
-                    <img src="https://github.com/jameyangzy/Personalized-Trending-Strategy-Generation-System/raw/main/images/Beijing.png" alt="景点" class="recommend-image">
-                    <p>桂林的山水风光被誉为“甲天下”，吸引着无数游客。</p>
-                </div>
-                <div class="recommend-item">
-                    <img src="https://github.com/jameyangzy/Personalized-Trending-Strategy-Generation-System/raw/main/images/Beijing.png" alt="景点" class="recommend-image">
-                    <p>黄山的奇松、怪石、云海、温泉是其四绝，吸引游客前来观光。</p>
-                </div>
+                <!-- 推荐内容由JavaScript动态生成 -->
             </div>
         </aside>
     </main>
 
-    <footer>
-        <h2>感谢您的支持</h2>
-    </footer>
-
-    <script>
-        var map = new BMap.Map("baidu-map");
-        var point = new BMap.Point(116.404, 39.915);
-        map.centerAndZoom(point, 12);
-        map.enableScrollWheelZoom(true);
-
-        document.querySelectorAll('.action-button').forEach(button => {
-            button.addEventListener('click', function() {
-                if (this.style.backgroundColor === '') {
-                    this.style.backgroundColor = '#7CFC00'; // 荧光绿色
-                } else {
-                    this.style.backgroundColor = ''; // 恢复初始状态
-                }
-            });
-        });
-
-        document.getElementById('add-keyword').addEventListener('click', function() {
-            var keywordsArea = document.getElementById('keywords-area');
-            keywordsArea.innerHTML = ''; // 清除默认叶子图
-
-            var newKeyword = document.createElement('div');
-            newKeyword.className = 'keyword floating';
-            newKeyword.innerHTML = `<img src="https://github.com/jameyangzy/Personalized-Trending-Strategy-Generation-System/raw/main/images/leaf.png" alt="leaf" class="leaf-icon">
-                                    <span>${document.getElementById('keyword-input').value}</span>`;
-            keywordsArea.appendChild(newKeyword);
-            randomizeLeafSize();
-        });
-
-        function randomizeLeafSize() {
-            document.querySelectorAll('.leaf-icon').forEach(leaf => {
-                var size = Math.floor(Math.random() * 25) + 25; // 更改大小范围
-                leaf.style.width = size + 'px';
-                leaf.style.height = size + 'px';
-            });
-        }
-
-        randomizeLeafSize(); // 初始化时调用
-
-        document.getElementById('search').addEventListener('click', function() {
-            var province = document.getElementById('province').value;
-            var city = document.getElementById('city').value;
-            var district = document.getElementById('district').value;
-            var address = province + city + district;
-
-            var localSearch = new BMap.LocalSearch(map, {
-                renderOptions: {map: map}
-            });
-            localSearch.search(address);
-        });
-    </script>
+    <script src="generate_guide.html"></script>
 </body>
 </html>
